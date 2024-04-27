@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { FaInstagram, FaSnapchatGhost } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
@@ -17,7 +18,10 @@ type SocialLoginProps = keyof typeof socialMediaIcons;
 const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
   const { toast } = useToast();
   const router = useRouter();
+  const searchParams = useSearchParams();
   const Icon = socialMediaIcons[type]; // Get the icon component dynamically
+
+  const code = searchParams.get("code");
 
   return (
     <Button
@@ -29,7 +33,7 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
         }
         if (type === "Instagram") {
           router.replace(
-            "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/approved/&scope=user_profile,user_media&response_type=code"
+            "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/&scope=user_profile,user_media&response_type=code"
           );
         }
       }}
@@ -40,7 +44,9 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
       }`}
     >
       {Icon && <Icon className="text-xl" />} {/* Render the icon */}
-      <p className="font-semibold">{type}</p>
+      <p className="font-semibold">
+        {type === "Instagram" && code ? "Connected" : type}
+      </p>
     </Button>
   );
 };
