@@ -10,7 +10,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
           Reinvent social media.
         </h2>
         <p className="lg:text-lg text-sm text-zinc-200 lg:w-2/3 w-4/5 text-center tracking-[-.03em]">
-          Fiesta isn't just an app; it's a cultural revolution—a movement
+          Fiesta is not just an app; it is a cultural revolution—a movement
           reshaping how we connect and celebrate together.
         </p>
         <h1 className="font-bold tracking-[-.05em] lg:text-8xl text-6xl italic py-8">
