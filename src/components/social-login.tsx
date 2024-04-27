@@ -21,7 +21,7 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
   const searchParams = useSearchParams();
   const Icon = socialMediaIcons[type]; // Get the icon component dynamically
 
-  const code = searchParams.get("code");
+  const code = searchParams.get("code") || localStorage.getItem("code");
   localStorage.setItem("code", code ?? "");
 
   return (
