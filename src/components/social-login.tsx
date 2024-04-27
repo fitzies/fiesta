@@ -15,13 +15,13 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
 
   return (
     <Button
-      className={`text-lg px-3 gap-2 flex items-center ${
+      className={`text-md px-3 gap-2 flex items-center ${
         type === "Snapchat"
           ? "bg-yellow-300 text-white hover:bg-yellow-400"
           : "bg-white text-black"
       }`}
     >
-      {Icon && <Icon className="text-2xl" />} {/* Render the icon */}
+      {Icon && <Icon className="text-xl" />} {/* Render the icon */}
       <p className="font-semibold">{type}</p>
     </Button>
   );
