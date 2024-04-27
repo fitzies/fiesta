@@ -57,9 +57,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
             {"->"}
           </Button>
         </form>
-        {submitted ? (
-          <p className="absolute">Thank you for joining the waitlist</p>
-        ) : null}
       </div>
     </div>
   );
