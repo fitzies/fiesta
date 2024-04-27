@@ -14,12 +14,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
           reshaping how we connect and celebrate together.
         </p>
         <h1 className="font-bold tracking-[-.05em] lg:text-8xl text-6xl italic py-8">
-          <CountUpAnimation duration={1000}>1403</CountUpAnimation>{" "}
+          <CountUpAnimation duration={1000}>1401</CountUpAnimation>{" "}
           <span className="text-2xl tracking-normal font-semibold not-italic">
             joined
           </span>
         </h1>
-        <div className="flex  gap-4">
+        <div className="flex gap-4">
           <SocialLoginButton type="Instagram" />
           <SocialLoginButton type="Snapchat" />
         </div>

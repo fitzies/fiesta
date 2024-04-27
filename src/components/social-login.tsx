@@ -1,5 +1,9 @@
+"use client";
+
 import { FaInstagram, FaSnapchatGhost } from "react-icons/fa";
 import { Button } from "./ui/button";
+import { useToast } from "./ui/use-toast";
+import { useRouter } from "next/navigation";
 
 // Define an object to map social media types to icons
 const socialMediaIcons = {
@@ -11,10 +15,24 @@ const socialMediaIcons = {
 type SocialLoginProps = keyof typeof socialMediaIcons;
 
 const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
+  const { toast } = useToast();
+  const router = useRouter();
   const Icon = socialMediaIcons[type]; // Get the icon component dynamically
 
   return (
     <Button
+      onClick={() => {
+        if (type === "Snapchat") {
+          toast({
+            title: "We have not implemented Snapchat yet",
+          });
+        }
+        if (type === "Instagram") {
+          router.replace(
+            "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/&scope=user_profile,user_media&response_type=code"
+          );
+        }
+      }}
       className={`text-md px-3 gap-2 flex items-center ${
         type === "Snapchat"
           ? "bg-yellow-300 text-white hover:bg-yellow-400"
