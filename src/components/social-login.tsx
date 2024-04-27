@@ -29,7 +29,7 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
         }
         if (type === "Instagram") {
           router.replace(
-            "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/&scope=user_profile,user_media&response_type=code"
+            "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/approved/&scope=user_profile,user_media&response_type=code"
           );
         }
       }}
