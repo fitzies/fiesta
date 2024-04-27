@@ -1,5 +1,6 @@
 import CountUpAnimation from "@/components/countup";
 import SocialLoginButton from "@/components/social-login";
+import { Suspense } from "react";
 
 const Page = ({ params }: { params: { slug: string } }) => {
   return (
@@ -20,8 +21,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
           </span>
         </h1>
         <div className="flex gap-4">
-          <SocialLoginButton type="Instagram" />
-          <SocialLoginButton type="Snapchat" />
+          <Suspense fallback={<div>error</div>}>
+            <SocialLoginButton type="Instagram" />
+            <SocialLoginButton type="Snapchat" />
+          </Suspense>
         </div>
       </div>
     </div>
