@@ -6,13 +6,16 @@ const easeOutQuad = (t: number) => t * (2 - t);
 const frameDuration = 1000 / 60;
 
 const CountUpAnimation = ({
-  children,
+  num = 1401,
   duration = 2000,
 }: {
-  children: any;
+  num: number;
   duration: number;
 }) => {
-  const countTo = parseInt(children, 10);
+  if (localStorage.getItem("code") !== null) {
+    num += 1;
+  }
+  const countTo = parseInt(num.toString(), 10);
   const [count, setCount] = useState(0);
 
   useEffect(() => {

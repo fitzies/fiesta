@@ -22,6 +22,7 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
   const Icon = socialMediaIcons[type]; // Get the icon component dynamically
 
   const code = searchParams.get("code");
+  localStorage.setItem("code", code ?? "");
 
   return (
     <Button
@@ -31,7 +32,7 @@ const SocialLoginButton = ({ type }: { type: SocialLoginProps }) => {
             title: "We have not implemented Snapchat yet",
           });
         }
-        if (type === "Instagram") {
+        if (type === "Instagram" && !code) {
           router.replace(
             "https://api.instagram.com/oauth/authorize?client_id=1702882570243063&redirect_uri=https://fiesta-delta.vercel.app/&scope=user_profile,user_media&response_type=code"
           );
